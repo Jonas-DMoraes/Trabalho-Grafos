@@ -1,0 +1,44 @@
+#ifndef GRAFO_H
+
+#define GRAFO_H
+
+#include "Aresta.h"
+#include <vector>
+
+class Grafo {
+public:
+   
+    Grafo(int num_vertices);
+
+    int num_vertices();
+    int num_arestas();
+
+    bool tem_aresta(Aresta e);
+
+   
+    void insere_aresta(Aresta e);
+
+    
+    void remove_aresta(Aresta e);
+
+    void imprime();
+
+  
+    bool caminho(int v, int w);
+
+private:
+    int num_vertices_;
+    int num_arestas_;
+    std::vector<std::vector<int>> matriz_adj_;
+
+    void valida_vertice(int v);
+    void valida_aresta(Aresta e);
+    bool eh_passeio(int seq_verts[], int tam_seq_verts);
+    bool eh_caminho(int seq_verts[], int tam_seq_verts);
+
+   
+    bool caminho_rec(int v, int w, std::vector<int> &marcado,
+        int profundidade);
+};
+
+#endif /* GRAFO_H */
