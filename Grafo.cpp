@@ -3,8 +3,14 @@
 #include <stdexcept>
 #include <string>
 #include <iostream>
-
 using namespace std;
+/*
+ * Trabalho 1 - Time to Live
+ *
+ * GEN505 - Grafos - 2026/2
+ *
+ * Nome: Jonas de Moraes   Matricula: 20240017592
+ */
 
 Grafo::Grafo(int num_vertices) {
     if (num_vertices <= 0) {
@@ -134,9 +140,7 @@ bool Grafo::caminho(int v, int w) {
 
 bool Grafo::caminho_rec(int v, int w, vector<int> &marcado,
         int profundidade) {
-    // Exercicio 1: imprime a linha "caminho(v, w)" indentada de acordo
-    // com a profundidade da chamada recursiva (2 caracteres '-' por
-    // nivel, em relacao ao nivel anterior).
+   
     cout << string(profundidade * 2, '-') << "caminho(" << v << ", " << w
         << ")\n";
 
@@ -157,4 +161,10 @@ bool Grafo::caminho_rec(int v, int w, vector<int> &marcado,
     }
 
     return false;
+}
+
+void Grafo::nao_recebem_mensagem(int origem, int ttl) {
+
+
+    ///// BUsca em largura
 }

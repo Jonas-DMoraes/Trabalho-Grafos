@@ -1,9 +1,16 @@
 #ifndef GRAFO_H
-
 #define GRAFO_H
-
 #include "Aresta.h"
 #include <vector>
+
+/*
+ * Trabalho 1 - Time to Live
+ *
+ * GEN505 - Grafos - 2026/2
+ *
+ * Nome: Jonas de Moraes   Matricula: 20240017592
+ */
+
 
 class Grafo {
 public:
@@ -39,6 +46,9 @@ private:
    
     bool caminho_rec(int v, int w, std::vector<int> &marcado,
         int profundidade);
+
+    void Grafo::nao_recebem_mensagem(int origem, int ttl);
 };
+
 
 #endif /* GRAFO_H */

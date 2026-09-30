@@ -3,8 +3,17 @@
 #include <exception>
 #include <string>
 #include <iostream>
-
 using namespace std;
+
+/*
+ * Trabalho 1 - Time to Live
+ *
+ * GEN505 - Grafos - 2026/2
+ *
+ * Nome: Jonas de Moraes   Matricula: 20240017592
+ */
+
+
 
 void print_exception(const exception &e, int level = 0) {
     cerr << "exception: " << string(level, ' ') << e.what() << "\n";

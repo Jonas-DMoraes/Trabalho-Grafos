@@ -4,6 +4,16 @@
 
 #include <string>
 
+/*
+ * Trabalho 1 - Time to Live
+ *
+ * GEN505 - Grafos - 2026/2
+ *
+ * Nome: Jonas de Moraes   Matricula: 20240017592
+ */
+
+
+
 class Aresta {
 public:
     const int v1;

@@ -1,7 +1,17 @@
 #include "Aresta.h"
 #include <string>
-
 using namespace std;
+
+
+/*
+ * Trabalho 1 - Time to Live
+ *
+ * GEN505 - Grafos - 2026/2
+ *
+ * Nome: Jonas de Moraes   Matricula: 20240017592
+ */
+
+
 
 Aresta::Aresta(int v1, int v2) : v1(v1), v2(v2) {
 }
