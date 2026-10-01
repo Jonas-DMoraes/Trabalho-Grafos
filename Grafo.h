@@ -16,7 +16,7 @@
 class Grafo {
 public:
    
-    Grafo(int num_vertices);
+    Grafo(int num_vertices, int num_arestas);
 
     int num_vertices();
     int num_arestas();
@@ -33,6 +33,10 @@ public:
 
     bool caminho(int v, int w);
 
+    void busca_larg(int v, std::vector<int> &marcado, int decremento);
+
+    void nao_recebem_mensagem(int origem, std::vector<int> &marcado, int ttl);
+
 private:
     int num_vertices_;
     int num_arestas_;
@@ -46,9 +50,7 @@ private:
     bool caminho_rec(int v, int w, std::vector<int> &marcado,
         int profundidade);
 
-    void busca_larg(int v, std::vector<int> &marcado, int decremento);
-
-    void nao_recebem_mensagem(int origem, int ttl);
+  
 };
 
 
