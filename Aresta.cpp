@@ -9,6 +9,7 @@ using namespace std;
  * GEN505 - Grafos - 2026/2
  *
  * Nome: Jonas de Moraes   Matricula: 20240017592
+ * Nome: Kauã de Liz Oliveira Matricula: 20250019699
  */
 
 

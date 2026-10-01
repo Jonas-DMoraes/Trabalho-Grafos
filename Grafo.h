@@ -9,6 +9,7 @@
  * GEN505 - Grafos - 2026/2
  *
  * Nome: Jonas de Moraes   Matricula: 20240017592
+ * Nome: Kauã de Liz Oliveira Matricula: 20250019699
  */
 
 
@@ -30,7 +31,6 @@ public:
 
     void imprime();
 
-  
     bool caminho(int v, int w);
 
 private:
@@ -43,11 +43,12 @@ private:
     bool eh_passeio(int seq_verts[], int tam_seq_verts);
     bool eh_caminho(int seq_verts[], int tam_seq_verts);
 
-   
     bool caminho_rec(int v, int w, std::vector<int> &marcado,
         int profundidade);
 
-    void Grafo::nao_recebem_mensagem(int origem, int ttl);
+    void busca_larg(int v);
+
+    void nao_recebem_mensagem(int origem, int ttl);
 };
 
 

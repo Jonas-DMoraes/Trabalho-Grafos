@@ -10,6 +10,7 @@ using namespace std;
  * GEN505 - Grafos - 2026/2
  *
  * Nome: Jonas de Moraes   Matricula: 20240017592
+ * Nome: Kauã de Liz Oliveira Matricula: 20250019699
  */
 
 Grafo::Grafo(int num_vertices) {
@@ -161,6 +162,24 @@ bool Grafo::caminho_rec(int v, int w, vector<int> &marcado,
     }
 
     return false;
+}
+
+void Grafo::busca_larg(int v, vector<int> &marcado, int decremento) {
+    queue<int> fila;
+    marcado[v] = 1;
+    fila.push(v);
+    while (!fila.empty()) {
+        int w = fila.front();
+        fila.pop();
+        printf("%d\n", w);
+        marcado[w] = 1;
+        for (int u = 0; u < num_vertices_; u++)
+            if (matriz_adj_[w][u] != 0)
+                if (marcado[u] == 0) {
+                    marcado[u] = 1;
+                    fila.push(u);
+                }
+    }
 }
 
 void Grafo::nao_recebem_mensagem(int origem, int ttl) {
