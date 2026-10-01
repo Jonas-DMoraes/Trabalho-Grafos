@@ -14,10 +14,10 @@ using namespace std;
  * Nome: Kauã de Liz Oliveira Matricula: 20250019699
  */
 
-Grafo::Grafo(int num_vertices) {
-    if (num_vertices <= 0) {
+Grafo::Grafo(int num_vertices, int num_arestas) {
+    if (num_vertices <= 0 || num_arestas < 0) {
         throw(invalid_argument("Erro no construtor Grafo(int): o numero de "
-            "vertices " + to_string(num_vertices) + " eh invalido!"));
+            "vertices/arestas " + to_string(num_vertices) + " eh invalido!"));
     }
 
     num_vertices_ = num_vertices;
@@ -170,21 +170,31 @@ void Grafo::busca_larg(int v, vector<int> &marcado, int decremento) {
     marcado[v] = 1;
     fila.push(v);
     while (!fila.empty()) {
+        if(fila.size() == 1){
+            decremento--;
+            cout << "diminuiu \n";
+        }
         int w = fila.front();
         fila.pop();
-        printf("%d\n", w);
         marcado[w] = 1;
+        if(decremento < 0) break;
         for (int u = 0; u < num_vertices_; u++)
             if (matriz_adj_[w][u] != 0)
                 if (marcado[u] == 0) {
                     marcado[u] = 1;
                     fila.push(u);
                 }
+        
     }
 }
 
-void Grafo::nao_recebem_mensagem(int origem, int ttl) {
-
-
+void Grafo::nao_recebem_mensagem(int origem, vector<int> &marcado, int ttl) {
+    busca_larg(origem, marcado, ttl);
+    cout << origem << " " << ttl << ": ";
+    for(int u = 0; u < num_vertices_;u++){
+        if(marcado[u] == 0){
+            cout << u << " ";
+        }
+    }
 
 }
