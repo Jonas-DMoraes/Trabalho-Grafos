@@ -46,7 +46,7 @@ private:
     bool caminho_rec(int v, int w, std::vector<int> &marcado,
         int profundidade);
 
-    void busca_larg(int v);
+    void busca_larg(int v, std::vector<int> &marcado, int decremento);
 
     void nao_recebem_mensagem(int origem, int ttl);
 };

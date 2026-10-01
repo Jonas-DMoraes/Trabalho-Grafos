@@ -1,4 +1,5 @@
 #include "Grafo.h"
+#include <queue>
 #include <exception>
 #include <stdexcept>
 #include <string>
@@ -185,5 +186,5 @@ void Grafo::busca_larg(int v, vector<int> &marcado, int decremento) {
 void Grafo::nao_recebem_mensagem(int origem, int ttl) {
 
 
-    ///// BUsca em largura
+
 }
