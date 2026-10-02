@@ -191,10 +191,12 @@ void Grafo::busca_larg(int v, vector<int> &marcado, int decremento) {
 void Grafo::nao_recebem_mensagem(int origem, vector<int> &marcado, int ttl) {
     busca_larg(origem, marcado, ttl);
     cout << origem << " " << ttl << ": ";
-    for(int u = 0; u < num_vertices_;u++){
-        if(marcado[u] == 0){
-            cout << u << " ";
+
+   for (int u = 0; u < num_vertices_; u++) {
+        if (marcado[u] == 0) {
+            cout << " " << u; // espaço antes do numero
         }
     }
+    cout << endl; //quebra a linha
 
 }
