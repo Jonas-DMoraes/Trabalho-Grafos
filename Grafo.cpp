@@ -189,7 +189,7 @@ void Grafo::nao_recebem_mensagem(int origem, vector<int> &marcado, int ttl) {
     valida_vertice(origem);
    
 
-    marcado.assign(num_vertices_, 0);  // zera a cada consulta
+    marcado.assign(num_vertices_, 0);  
     busca_larg(origem, marcado, ttl);
 
     cout << origem << " " << ttl << ":";
