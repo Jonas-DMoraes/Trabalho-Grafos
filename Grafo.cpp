@@ -169,27 +169,24 @@ void Grafo::busca_larg(int v, vector<int> &marcado, int decremento) {
     queue<int> fila;
     marcado[v] = 1;
     fila.push(v);
-    while (!fila.empty()) {
-        if(fila.size() == 1){
-            decremento--;
+    while (!fila.empty() && decremento > 0) {
+        for (int i = fila.size(); i > 0; i--) {
+            int w = fila.front();
+            fila.pop();
+            for (int u = 0; u < num_vertices_; u++)
+                if (matriz_adj_[w][u] != 0)
+                    if (marcado[u] == 0) {
+                        marcado[u] = 1;
+                        fila.push(u);
+                    }
         }
-        int w = fila.front();
-        fila.pop();
-        marcado[w] = 1;
-        if(decremento < 0) break;
-        for (int u = 0; u < num_vertices_; u++)
-            if (matriz_adj_[w][u] != 0)
-                if (marcado[u] == 0) {
-                    marcado[u] = 1;
-                    fila.push(u);
-                }
-        
+          decremento--;
     }
 }
 
 void Grafo::nao_recebem_mensagem(int origem, vector<int> &marcado, int ttl) {
-    
-        valida_vertice(origem);
+
+    valida_vertice(origem);
    
 
     marcado.assign(num_vertices_, 0);  // zera a cada consulta
