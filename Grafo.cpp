@@ -172,7 +172,6 @@ void Grafo::busca_larg(int v, vector<int> &marcado, int decremento) {
     while (!fila.empty()) {
         if(fila.size() == 1){
             decremento--;
-            cout << "diminuiu \n";
         }
         int w = fila.front();
         fila.pop();
@@ -189,12 +188,9 @@ void Grafo::busca_larg(int v, vector<int> &marcado, int decremento) {
 }
 
 void Grafo::nao_recebem_mensagem(int origem, vector<int> &marcado, int ttl) {
-    try {
+    
         valida_vertice(origem);
-    } catch (...) {
-        throw_with_nested(runtime_error("Erro na operacao "
-            "nao_recebem_mensagem(int, vector<int>&, int): vertice invalido!"));
-    }
+   
 
     marcado.assign(num_vertices_, 0);  // zera a cada consulta
     busca_larg(origem, marcado, ttl);
