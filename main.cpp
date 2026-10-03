@@ -3,6 +3,7 @@
 #include <exception>
 #include <string>
 #include <iostream>
+#include <vector>
 using namespace std;
 
 /*
@@ -26,25 +27,36 @@ void print_exception(const exception &e, int level = 0) {
 }
 
 int main() {
-    try {
-        //Teste 1
-        Grafo g(6,6);
+   try {
+        int N, C;
+        /// N = número de nós //  C = conexões
+        if (cin >> N >> C) {
+            Grafo g(N, C);
 
-        g.insere_aresta(Aresta(2, 5));
-        g.insere_aresta(Aresta(0, 4));
-        g.insere_aresta(Aresta(3, 5));
-        g.insere_aresta(Aresta(1, 3));
-        g.insere_aresta(Aresta(0, 5));
-        g.insere_aresta(Aresta(2, 4));
+            // 
+            for (int i = 0; i < C; i++) {
+                int u, v;
+                cin >> u >> v;
+                g.insere_aresta(Aresta(u, v));
+            }
 
-        vector<int> marcado(g.num_vertices());
-        g.nao_recebem_mensagem(4,marcado,3);
+            int O;
+           //O = número de operações 
+            if (cin >> O) {
+                vector<int> marcado(g.num_vertices());
+
+                // Execução de cada consulta de TTL
+                for (int i = 0; i < O; i++) {
+                    int origem, ttl;
+                    cin >> origem >> ttl;
+                    g.nao_recebem_mensagem(origem, marcado, ttl);
+                }
+            }
+        }
     }
     catch (const exception &e) {
         print_exception(e);
     }
-
-
 
     return 0;
 }

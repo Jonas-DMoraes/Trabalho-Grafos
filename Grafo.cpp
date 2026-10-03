@@ -194,9 +194,9 @@ void Grafo::nao_recebem_mensagem(int origem, vector<int> &marcado, int ttl) {
 
    for (int u = 0; u < num_vertices_; u++) {
         if (marcado[u] == 0) {
-            cout << " " << u; // espaço antes do numero
+            cout << " " << u; 
         }
     }
-    cout << endl; //quebra a linha
+    cout << endl; 
 
 }
